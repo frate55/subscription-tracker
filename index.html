@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subscription Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ui-page">
+
+  <header class="ui-header">
+    <h1 class="ui-title">Subscription Tracker</h1>
+  </header>
+
+  <main class="ui-container">
+
+    <!-- Section 1: Form -->
+    <section class="ui-card" id="form-section">
+      <h2 class="ui-card-title">Add subscription</h2>
+      <form id="subscription-form" class="ui-form" novalidate>
+        <div class="ui-field">
+          <label for="service">Service</label>
+          <input class="ui-input" type="text" id="service" required>
+        </div>
+        <div class="ui-field">
+          <label for="provider">Provider</label>
+          <input class="ui-input" type="text" id="provider" required>
+        </div>
+        <div class="ui-field">
+          <label for="subscriber">Subscriber</label>
+          <input class="ui-input" type="text" id="subscriber" required>
+        </div>
+        <div class="ui-field">
+          <label for="renewal">Renewal date</label>
+          <input class="ui-input" type="date" id="renewal" required>
+        </div>
+        <div class="ui-field">
+          <label for="category">Category</label>
+          <select class="ui-input" id="category" required>
+            <option value="">Select category</option>
+            <option>Entertainment</option>
+            <option>Software</option>
+            <option>Education</option>
+            <option>Utilities</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button type="submit" class="ui-btn ui-btn-primary">Add</button>
+      </form>
+      <p id="form-error" class="ui-error" role="alert"></p>
+    </section>
+
+    <!-- Section 2: Table -->
+    <section class="ui-card" id="table-section">
+      <h2 class="ui-card-title">Subscriptions</h2>
+      <div class="ui-table-wrap">
+        <table class="ui-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Provider</th>
+              <th>Subscriber</th>
+              <th>Renewal date</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="subscription-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: Summary -->
+    <section class="ui-card" id="summary-section">
+      <h2 class="ui-card-title">Summary</h2>
+      <div class="ui-stats">
+        <div class="ui-stat">
+          <span class="ui-stat-value" id="total-count">0</span>
+          <span class="ui-stat-label">Total subscriptions</span>
+        </div>
+        <div class="ui-stat ui-stat-danger">
+          <span class="ui-stat-value" id="expired-count">0</span>
+          <span class="ui-stat-label">Expired subscriptions</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JS library first, then the app that uses it -->
+  <script src="lib/subscription-lib.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
